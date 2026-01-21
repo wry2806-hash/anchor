@@ -7,8 +7,8 @@ export const Hero = () => {
   const { choice } = useHeroMedia();
 
   const heroBackground = {
-    lifestyle: "/images/herobgL2.png",
-    studio: "/images/herobgs3.png"
+    lifestyle: "/images/herobgL1.png",
+    studio: "/images/herobgS1.png"
   } as const;
 
   return (

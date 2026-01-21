@@ -6,15 +6,15 @@ export const LifestyleGrid = () => (
       <div className="grid gap-6 md:grid-cols-3">
         {[
           {
-            src: "/images/lifestyle-1.jpg",
+            src: "/images/ChatGPT_Image_Jan_20_2026_11_34_30_AM.png",
             alt: "Pulldown with straps visible"
           },
           {
-            src: "/images/lifestyle-2.jpg",
+            src: "/images/herobgL1.png",
             alt: "Seated row with straps visible"
           },
           {
-            src: "/images/lifestyle-3.jpg",
+            src: "/images/herobgS1.png",
             alt: "Detail hands, ring, and attachment"
           }
         ].map((image) => (

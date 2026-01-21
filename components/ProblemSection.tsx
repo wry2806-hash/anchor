@@ -9,9 +9,9 @@ export const ProblemSection = () => (
       </div>
       <div className="grid gap-6 md:grid-cols-3">
         {[
-          { src: "/images/problem-flex.jpg", label: "Flex kills force" },
-          { src: "/images/problem-grip.jpg", label: "Grip fails first" },
-          { src: "/images/problem-power.jpg", label: "Bleed power every rep" }
+          { src: "/images/herobgL1.png", label: "Flex kills force" },
+          { src: "/images/herobgS1.png", label: "Grip fails first" },
+          { src: "/images/solutiongbg.png", label: "Bleed power every rep" }
         ].map((item) => (
           <div
             key={item.src}
