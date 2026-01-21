@@ -1,0 +1,62 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Creator {
+  id              String   @id @default(cuid())
+  name            String
+  email           String   @unique
+  code            String   @unique
+  commissionRate  Float    @default(0.1)
+  status          String   @default("active")
+  createdAt       DateTime @default(now())
+  invites         Invite[]
+  orders          Order[]
+  commissions     Commission[]
+}
+
+model Invite {
+  id         String   @id @default(cuid())
+  email      String
+  name       String
+  code       String
+  token      String   @unique
+  status     String   @default("pending")
+  createdAt  DateTime @default(now())
+  expiresAt  DateTime
+  acceptedAt DateTime?
+  creator    Creator? @relation(fields: [creatorId], references: [id])
+  creatorId  String?
+}
+
+model Order {
+  id               String   @id @default(cuid())
+  shopifyOrderId   String   @unique
+  creator          Creator? @relation(fields: [creatorId], references: [id])
+  creatorId        String?
+  subtotalAmount   Float
+  discountAmount   Float    @default(0)
+  shippingAmount   Float    @default(0)
+  taxAmount        Float    @default(0)
+  cogsAmount       Float    @default(0)
+  netProfitAmount  Float
+  currency         String
+  createdAt        DateTime @default(now())
+}
+
+model Commission {
+  id          String   @id @default(cuid())
+  creator     Creator  @relation(fields: [creatorId], references: [id])
+  creatorId   String
+  order       Order    @relation(fields: [orderId], references: [id])
+  orderId     String
+  amount      Float
+  status      String   @default("pending")
+  payoutRef   String?
+  createdAt   DateTime @default(now())
+}
