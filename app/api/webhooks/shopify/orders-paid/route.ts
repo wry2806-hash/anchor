@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
-import { prisma } from "../../../../lib/db";
-import { calculateCommission, calculateNetProfit } from "../../../../lib/commission";
+import { prisma } from "../../../../../lib/db";
+import { calculateCommission, calculateNetProfit } from "../../../../../lib/commission";
 
 type ShopifyOrderPayload = {
   id: string;
